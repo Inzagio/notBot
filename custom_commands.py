@@ -1,5 +1,6 @@
 import asyncio
 import discord
+import requests
 from discord.ext import commands
 
 class CustomCommands(commands.Cog):
@@ -7,9 +8,7 @@ class CustomCommands(commands.Cog):
         self.bot = bot
 
     @commands.command()
-    async def noarg(self, ctx):
-        await ctx.send('No argument list in signature')
-
-    @commands.command()
-    async def nullable(self, ctx, *args):
-        await ctx.send('nullable arguments ({0}): {1}'.format(len(args), args))
+    async def quote(self, ctx):
+        r = requests.get('http://www.bzl.no/api/quotes.php')
+        j = r.json()
+        await ctx.send('{0} -- {1}'.format(j['text'], j['from']))
