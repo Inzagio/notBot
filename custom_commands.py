@@ -21,3 +21,7 @@ class CustomCommands(commands.Cog):
     @commands.command()
     async def pm(self, ctx):
         await ctx.message.author.send('Hi there')
+
+    @commands.command()
+    async def automate(self, ctx):
+        await ctx.message.author.send('https://automatetheboringstuff.com/')
