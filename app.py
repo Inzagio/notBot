@@ -1,6 +1,8 @@
 import discord
 import asyncio
+import config
 from discord.ext import commands
+
 # from commandsModule import CommandsTest
 
 client = discord.Client()
@@ -29,5 +31,4 @@ async def on_message(message):
         await message.channel.send(f"Hi! {message.author.name}")
 
 
-
-client.run()
+client.run(config.token)
