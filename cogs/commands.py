@@ -3,7 +3,7 @@ import discord
 import aiohttp
 from discord.ext import commands
 
-class CustomCommands(commands.Cog):
+class Commands(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
@@ -19,6 +19,5 @@ class CustomCommands(commands.Cog):
     async def pm(self, ctx):
         await ctx.message.author.send('Hi there')
 
-    @commands.command()
-    async def automate(self, ctx):
-        await ctx.message.author.send('https://automatetheboringstuff.com/')
+def setup(bot):
+    bot.add_cog(Commands(bot))
